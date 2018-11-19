@@ -1,0 +1,10 @@
+/node_modules
+/es5
+/es2015
+/es2018
+.DS_Store
+
+/coverage/*
+!/coverage/badge-*.svg
+/src/__spec__/*.js
+/src/__spec__/*.d.ts

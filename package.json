@@ -1,0 +1,28 @@
+{
+  "name": "defer-until-online",
+  "version": "0.0.0",
+  "description": "A decorator for ensuring that function is deferred until the browser is online",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "online",
+    "offline",
+    "browser"
+  ],
+  "repository": "git@github.com:sithmel/defer-until-online.git",
+  "author": "Maurizio Lupo <maurizio.lupo@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^1.1.4",
+    "mocha": "^5.2.0"
+  }
+}

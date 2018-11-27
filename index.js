@@ -1,7 +1,7 @@
 
 function deferUntilOnline (opts) {
   opts = opts || {}
-  var timeout = opts.timeout || Infinity
+  var timeout = opts.timeout
   return function (func) {
     return function () {
       var context = this
@@ -11,13 +11,8 @@ function deferUntilOnline (opts) {
         return func.apply(context, args)
       }
 
-      var to = new Promise(function (resolve, reject) {
-        setTimeout(() => reject(new Error('Timeout')), timeout)
-      })
-
       var task = new Promise(function (resolve, reject) {
         function updateOnlineStatus () {
-          clearTimeout(to)
           window.removeEventListener('online', updateOnlineStatus)
           func.apply(context, args)
             .then(resolve)
@@ -25,6 +20,15 @@ function deferUntilOnline (opts) {
         }
         window.addEventListener('online', updateOnlineStatus)
       })
+
+      if (typeof timeout === 'undefined') {
+        return task
+      }
+
+      var to = new Promise(function (resolve, reject) {
+        setTimeout(() => reject(new Error('Timeout')), timeout)
+      })
+
       return Promise.race([task, to])
     }
   }

@@ -26,7 +26,7 @@ function deferUntilOnline (opts) {
       }
 
       var to = new Promise(function (resolve, reject) {
-        setTimeout(() => reject(new Error('Timeout')), timeout)
+        setTimeout(() => reject(new Error('Defer until Online: Timeout')), timeout)
       })
 
       return Promise.race([task, to])

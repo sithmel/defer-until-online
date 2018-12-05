@@ -1,6 +1,6 @@
 {
   "name": "defer-until-online",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A decorator for ensuring that function is deferred until the browser is online",
   "main": "index.js",
   "scripts": {
